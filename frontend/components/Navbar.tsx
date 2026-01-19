@@ -19,19 +19,19 @@ const navLinks = [
 
 const PixelIconMenu = () => (
   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 6h20v2H2V6zm0 5h20v2H2v-2zm0 5h20v2H2v-2z"/>
+    <path d="M2 6h20v2H2V6zm0 5h20v2H2v-2zm0 5h20v2H2v-2z" />
   </svg>
 );
 
 const PixelIconClose = () => (
   <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M5 5h2v2h2v2h2v2h2V9h2V7h2v2h-2v2h-2v2h2v2h2v2h-2v-2h-2v-2h-2v2H9v2H7v-2H5v-2h2v-2H5V5z"/>
+    <path d="M5 5h2v2h2v2h2v2h2V9h2V7h2v2h-2v2h-2v2h2v2h2v2h-2v-2h-2v-2h-2v2H9v2H7v-2H5v-2h2v-2H5V5z" />
   </svg>
 );
 
 const PixelIconArrowRight = () => (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M14 6h2v2h2v2h2v4h-2v2h-2v2h-2v-2h2v-2h-2v-2H6v-2h10V8h-2V6z"/>
+    <path d="M14 6h2v2h2v2h2v4h-2v2h-2v2h-2v-2h2v-2h-2v-2H6v-2h10V8h-2V6z" />
   </svg>
 );
 
@@ -42,23 +42,24 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   const { scrollY } = useScroll();
   const [lastY, setLastY] = useState(0);
 
-  // Scroll Behavior: Hide on Down, Show on Up
+  // Scroll Behavior: Hide on Down, Show on Up - DISABLED per user request (sticky header)
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const diff = latest - lastY;
-    
-    // Only trigger hide logic if we've scrolled past the hero section significantly (e.g., 100px)
-    if (latest > 100) {
-      if (Math.abs(diff) > 20) { // Increased threshold for stability
-        if (diff > 0) {
-          setIsHidden(true); // Scrolling down
-        } else {
-          setIsHidden(false); // Scrolling up
-        }
-      }
-    } else {
-      setIsHidden(false); // Always show at top
-    }
-    
+    // const diff = latest - lastY;
+
+    // // Only trigger hide logic if we've scrolled past the hero section significantly (e.g., 100px)
+    // if (latest > 100) {
+    //   if (Math.abs(diff) > 20) { // Increased threshold for stability
+    //     if (diff > 0) {
+    //       setIsHidden(true); // Scrolling down
+    //     } else {
+    //       setIsHidden(false); // Scrolling up
+    //     }
+    //   }
+    // } else {
+    //   setIsHidden(false); // Always show at top
+    // }
+
+    setIsHidden(false); // Force visible
     setLastY(latest);
   });
 
@@ -74,8 +75,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
       const scrollPos = window.scrollY + 100; // Minimal buffer for active state detection
 
       // All sections on Home page to track, in reverse visual order (bottom-up)
-      const sections = ['contact', 'process', 'work', 'services', 'about']; 
-      
+      const sections = ['contact', 'process', 'work', 'services', 'about'];
+
       let found = 'home'; // Default to home
 
       for (const id of sections) {
@@ -146,20 +147,20 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
 
     // Switch from Projects to Home if needed
     if (currentView !== 'home') {
-       onNavigate('home');
-       updateURL(href === '#' ? '/' : href);
-       document.documentElement.style.scrollBehavior = 'auto';
-       window.scrollTo(0, 0);
-       
-       // Allow home page to mount then scroll to target ID
-       setTimeout(() => {
-         document.documentElement.style.scrollBehavior = 'smooth';
-         const targetId = href.replace('#', '');
-         if (targetId) {
-           const elem = document.getElementById(targetId);
-           if (elem) elem.scrollIntoView({ behavior: 'smooth' });
-         }
-       }, 150);
+      onNavigate('home');
+      updateURL(href === '#' ? '/' : href);
+      document.documentElement.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+
+      // Allow home page to mount then scroll to target ID
+      setTimeout(() => {
+        document.documentElement.style.scrollBehavior = 'smooth';
+        const targetId = href.replace('#', '');
+        if (targetId) {
+          const elem = document.getElementById(targetId);
+          if (elem) elem.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 150);
     } else {
       // Smooth scroll on same page
       updateURL(href === '#' ? '/' : href);
@@ -169,7 +170,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
         if (elem) {
           elem.scrollIntoView({ behavior: 'smooth' });
         } else {
-           window.scrollTo({ top: 0, behavior: 'smooth' });
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -197,9 +198,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
         <Container>
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a 
-              href="/" 
-              onClick={(e) => { e.preventDefault(); handleNavigation('home', '#'); }} 
+            <a
+              href="/"
+              onClick={(e) => { e.preventDefault(); handleNavigation('home', '#'); }}
               className="group flex items-baseline gap-2 cursor-pointer z-[100000] select-none"
             >
               <span className="font-display text-2xl font-bold tracking-tight text-cream">
@@ -215,11 +216,11 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               {navLinks.map((link) => {
                 let isActive = false;
                 if (currentView === 'projects') {
-                    isActive = link.name === 'Projects';
+                  isActive = link.name === 'Projects';
                 } else {
-                    if (link.name === 'Projects') isActive = false;
-                    else if (link.href === '#') isActive = activeSection === 'home';
-                    else isActive = activeSection === link.href.replace('#', '');
+                  if (link.name === 'Projects') isActive = false;
+                  else if (link.href === '#') isActive = activeSection === 'home';
+                  else isActive = activeSection === link.href.replace('#', '');
                 }
 
                 return (
@@ -227,9 +228,8 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
                     key={link.name}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link)}
-                    className={`relative text-sm tracking-wide font-medium transition-colors duration-300 font-serif cursor-pointer py-1 px-1 ${
-                      isActive ? 'text-brand-500' : 'text-cream/80 hover:text-brand-500'
-                    }`}
+                    className={`relative text-sm tracking-wide font-medium transition-colors duration-300 font-serif cursor-pointer py-1 px-1 ${isActive ? 'text-brand-500' : 'text-cream/80 hover:text-brand-500'
+                      }`}
                   >
                     {link.name}
                     {isActive && (
@@ -274,13 +274,13 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
           >
             <div className="flex flex-col space-y-4">
               {navLinks.map((link, idx) => {
-                 let isActive = false;
-                 if (currentView === 'projects') isActive = link.name === 'Projects';
-                 else if (link.name === 'Projects') isActive = false;
-                 else if (link.href === '#') isActive = activeSection === 'home';
-                 else isActive = activeSection === link.href.replace('#', '');
+                let isActive = false;
+                if (currentView === 'projects') isActive = link.name === 'Projects';
+                else if (link.name === 'Projects') isActive = false;
+                else if (link.href === '#') isActive = activeSection === 'home';
+                else isActive = activeSection === link.href.replace('#', '');
 
-                 return (
+                return (
                   <motion.a
                     key={link.name}
                     href={link.href}
@@ -288,23 +288,22 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
                     initial={{ opacity: 0, x: 10 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05 }}
-                    className={`text-3xl font-serif font-medium ${
-                      isActive ? 'text-brand-500' : 'text-cream'
-                    }`}
+                    className={`text-3xl font-serif font-medium ${isActive ? 'text-brand-500' : 'text-cream'
+                      }`}
                   >
                     {link.name}
                   </motion.a>
-                 );
+                );
               })}
               <div className="pt-8 border-t border-cream/10 mt-4">
-                 <a 
-                    href="#contact"
-                    onClick={(e) => { e.preventDefault(); handleNavigation('home', '#contact'); }}
-                    className="flex items-center justify-between w-full p-6 bg-brand-500 text-void rounded-xl font-bold text-xl"
-                 >
-                    <span>Start a Project</span>
-                    <PixelIconArrowRight />
-                 </a>
+                <a
+                  href="#contact"
+                  onClick={(e) => { e.preventDefault(); handleNavigation('home', '#contact'); }}
+                  className="flex items-center justify-between w-full p-6 bg-brand-500 text-void rounded-xl font-bold text-xl"
+                >
+                  <span>Start a Project</span>
+                  <PixelIconArrowRight />
+                </a>
               </div>
             </div>
           </motion.div>
