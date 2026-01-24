@@ -11,7 +11,7 @@ interface WorkProps {
 
 const PixelIconArrowUpRight = () => (
   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M8 6h10v10h-2V8h-2v2h-2v2h-2v2H8v-2h2v-2h2V8H8V6z"/>
+    <path d="M8 6h10v10h-2V8h-2v2h-2v2h-2v2H8v-2h2v-2h2V8H8V6z" />
   </svg>
 );
 
@@ -24,30 +24,30 @@ const Work: React.FC<WorkProps> = ({ onViewAll }) => {
   return (
     <section id="work" className="py-32 bg-surface">
       <Container>
-        <SectionHeading 
-          subtitle="Selected Work" 
-          title="Engineered for impact." 
+        <SectionHeading
+          subtitle="Portofolio"
+          title="Engineered for impact."
         />
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-16">
           {featuredProjects.map((project, index) => (
-            <ProjectCard 
-              key={project.id} 
-              project={project} 
-              index={index} 
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
               onClick={() => setSelectedProject(project)}
             />
           ))}
         </div>
 
         <div className="mt-16 text-center">
-          <button 
+          <button
             onClick={onViewAll}
             className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-gray-400 hover:text-brand-500 transition-colors group"
           >
-            View Full Portfolio 
+            View Full Portfolio
             <div className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                <PixelIconArrowUpRight />
+              <PixelIconArrowUpRight />
             </div>
           </button>
         </div>
@@ -55,10 +55,10 @@ const Work: React.FC<WorkProps> = ({ onViewAll }) => {
 
       <AnimatePresence>
         {selectedProject && (
-            <ProjectModal 
-                project={selectedProject} 
-                onClose={() => setSelectedProject(null)} 
-            />
+          <ProjectModal
+            project={selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
         )}
       </AnimatePresence>
     </section>
