@@ -77,9 +77,10 @@ const Process: React.FC = () => {
   }, []);
 
   // Logic Utama: Tentukan Active Step berdasarkan Priority
+  // Logic Utama: Tentukan Active Step berdasarkan Priority
   useEffect(() => {
-    // Jika sedang di-lock oleh manual click, jangan ubah otomatis
-    if (scrollLock.current) return;
+    // Jika sedang di-lock oleh manual click atau sedang scrolling, jangan ubah otomatis untuk mencegah layout shift
+    if (scrollLock.current || isScrolling) return;
 
     // Ambil daftar step yang sedang terlihat
     const visibleArray = Array.from(visibleSteps).sort();
@@ -91,7 +92,7 @@ const Process: React.FC = () => {
       const topMostVisibleStep = visibleArray[0];
       setActiveStepId(prev => prev !== topMostVisibleStep ? topMostVisibleStep : prev);
     }
-  }, [visibleSteps]);
+  }, [visibleSteps, isScrolling]);
 
   const handleManualActivate = useCallback((id: string) => {
     setActiveStepId(id);
