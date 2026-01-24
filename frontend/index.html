@@ -1,93 +1,101 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SPESSOLV | The Architecture of Ambition</title>
 
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SPESSOLVE | The Architecture of Ambition</title>
+  <link rel="icon" type="image/svg+xml" sizes="any"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='12' fill='white'/%3E%3Ctext x='12' y='17' font-family='sans-serif' font-size='14' font-weight='900' text-anchor='middle' fill='%2385A947'%3EEZ%3C/text%3E%3C/svg%3E">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Link Google Fonts for Storytelling Aesthetic -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Tailwind Config -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              // Classic + Modern Mapping
-              sans: ['"Quicksand"', 'sans-serif'],
-              display: ['"Merriweather"', 'serif'],
-              serif: ['"Merriweather"', 'serif'],
-              // Mapping mono to Quicksand to replace previous "tech" styles with "soft" styles
-              mono: ['"Quicksand"', 'sans-serif'], 
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Link Google Fonts for Storytelling Aesthetic -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            // Classic + Modern Mapping
+            sans: ['"Quicksand"', 'sans-serif'],
+            display: ['"Merriweather"', 'serif'],
+            serif: ['"Merriweather"', 'serif'],
+            // Mapping mono to Quicksand to replace previous "tech" styles with "soft" styles
+            mono: ['"Quicksand"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f4f7f2',
+              100: '#eef3e8',
+              300: '#3E7B27',
+              500: '#85A947',
+              600: '#3E7B27',
+              700: '#123524',
+              900: '#0a2016',
             },
-            colors: {
-              brand: {
-                50: '#f4f7f2',
-                100: '#eef3e8',
-                300: '#3E7B27',
-                500: '#85A947',
-                600: '#3E7B27',
-                700: '#123524',
-                900: '#0a2016',
-              },
-              void: '#123524',
-              surface: '#0f2e1f',
-              cream: '#EFE3C2',
-              subtle: '#3E7B27',
-              muted: '#AABBAA',
-            },
+            void: '#123524',
+            surface: '#0f2e1f',
+            cream: '#EFE3C2',
+            subtle: '#3E7B27',
+            muted: '#AABBAA',
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <!-- Global Styles -->
-    <style>
-      html {
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
+  <!-- Global Styles -->
+  <style>
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-      body {
-        background-color: #123524;
-        color: #EFE3C2;
-        overflow-x: hidden;
-        font-family: 'Quicksand', sans-serif;
-      }
+    body {
+      background-color: #123524;
+      color: #EFE3C2;
+      overflow-x: hidden;
+      font-family: 'Quicksand', sans-serif;
+    }
 
-      /* Headings */
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Merriweather', serif;
-      }
+    /* Headings */
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Merriweather', serif;
+    }
 
-      /* Selection */
-      ::selection {
-        background-color: #85A947;
-        color: #123524;
-      }
+    /* Selection */
+    ::selection {
+      background-color: #85A947;
+      color: #123524;
+    }
 
-      /* Scrollbar hidden */
-      .no-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-      .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-    </style>
+    /* Scrollbar hidden */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
 
-    <!-- Import Map -->
-    <script type="importmap">
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <!-- Import Map -->
+  <script type="importmap">
 {
   "imports": {
     "react": "https://esm.sh/react@18.3.1",
@@ -100,9 +108,10 @@
   <link rel="stylesheet" href="/index.css">
 </head>
 
-  <body class="font-sans">
-    <div id="root"></div>
-    <script type="module" src="index.tsx"></script>
+<body class="font-sans">
+  <div id="root"></div>
+  <script type="module" src="index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

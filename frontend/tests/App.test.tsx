@@ -26,10 +26,10 @@ describe('App Integration', () => {
             expect(nav).not.toBeNull();
         });
 
-        // Check for "SPESSOLV" text content inside the container to be sure
+        // Check for "SPESSOLVE" text content inside the container to be sure
         // This avoids "Unable to find element" if it is split or weirdly structured
         await waitFor(() => {
-            expect(container.textContent).toMatch(/SPESSOLV/i); // Case insensitive check
+            expect(container.textContent).toMatch(/SPESSOLVE/i); // Case insensitive check
         });
 
         // Check for main content

@@ -10,7 +10,7 @@ describe('Navbar', () => {
         // Need to mock window.scrollY for Navbar scroll logic if needed, but default render is fine
         render(<Navbar onNavigate={onNavigateMock} currentView="home" />);
 
-        expect(screen.getByText('SPESSOLV')).toBeInTheDocument();
+        expect(screen.getByText('SPESSOLVE')).toBeInTheDocument();
 
         // Check for some main nav links
         expect(screen.getByText('About')).toBeInTheDocument();
@@ -22,7 +22,7 @@ describe('Navbar', () => {
     it('calls onNavigate when Home logo is clicked', () => {
         render(<Navbar onNavigate={onNavigateMock} currentView="projects" />);
 
-        const logo = screen.getByText('SPESSOLV').closest('a');
+        const logo = screen.getByText('SPESSOLVE').closest('a');
         fireEvent.click(logo!);
 
         expect(onNavigateMock).toHaveBeenCalledWith('home');

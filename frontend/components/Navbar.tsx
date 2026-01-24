@@ -204,7 +204,7 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
               className="group flex items-baseline gap-2 cursor-pointer z-[100000] select-none"
             >
               <span className="font-display text-2xl font-bold tracking-tight text-cream">
-                SPESSOLV
+                SPESSOLVE
               </span>
               <span className="hidden sm:inline-block font-serif italic text-xs text-brand-500">
                 make it ez

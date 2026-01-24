@@ -110,17 +110,17 @@ export const allProjects: Project[] = [
   },
   {
     id: 5,
-    title: 'Spessolv Gold',
+    title: 'Spessolve Gold',
     category: 'Design / Portfolio',
     description: 'Premium architectural portfolio showcasing high-end digital experiences.',
-    fullDescription: "This portfolio serves as the digital flagship for Spessolv, demonstrating the cutting edge of web interactions. It features custom WebGL shaders, smooth-scroll physics, and a micro-interaction framework that makes every click feel substantial. It is a testament to the philosophy that digital spaces should be as well-crafted as physical ones.",
+    fullDescription: "This portfolio serves as the digital flagship for Spessolve, demonstrating the cutting edge of web interactions. It features custom WebGL shaders, smooth-scroll physics, and a micro-interaction framework that makes every click feel substantial. It is a testament to the philosophy that digital spaces should be as well-crafted as physical ones.",
     technologies: ["React", "Framer Motion", "Tailwind", "Vite"],
     testimonial: "The most immersive portfolio we've seen this year. It sets a new standard for digital presence.",
     clientRole: "Editor, Web Design Weekly",
     impact: "Award Winning",
     year: "2026",
     image: spessolvGoldImg,
-    url: "https://spessolv-gold.vercel.app",
+    url: "https://spessolve-gold.vercel.app",
   }
 ];
 

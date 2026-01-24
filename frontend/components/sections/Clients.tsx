@@ -3,18 +3,18 @@ import { motion } from 'framer-motion';
 import Container from '../ui/Container';
 
 const clients = [
-  { name: "Acme Corp", industry: "Fintech" },
-  { name: "GlobalTech", industry: "SaaS" },
-  { name: "Nebula", industry: "Aerospace" },
-  { name: "Velocity", industry: "Automotive" },
-  { name: "Circle", industry: "Web3" },
-  { name: "FoxRun", industry: "Venture Capital" },
-  { name: "Starlight", industry: "Media" },
-  { name: "Onyx", industry: "Luxury" },
-  { name: "Apex", industry: "Health" },
-  { name: "Zenith", industry: "Logistics" },
-  { name: "Horizon", industry: "Energy" },
-  { name: "Vertex", industry: "AI" }
+  { name: "?", industry: "Fintech" },
+  { name: "?", industry: "SaaS" },
+  { name: "?", industry: "Aerospace" },
+  { name: "?", industry: "Automotive" },
+  { name: "?", industry: "Web3" },
+  { name: "?", industry: "Venture Capital" },
+  { name: "?", industry: "Media" },
+  { name: "?", industry: "Luxury" },
+  { name: "?", industry: "Health" },
+  { name: "?", industry: "Logistics" },
+  { name: "?", industry: "Energy" },
+  { name: "?", industry: "AI" }
 ];
 
 const Clients: React.FC = () => {
@@ -22,23 +22,23 @@ const Clients: React.FC = () => {
     <section className="py-32 bg-surface relative border-t border-white/5">
       <Container>
         <div className="flex flex-col items-center text-center mb-20">
-            <motion.span 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-brand-500 uppercase tracking-[0.2em] text-xs font-bold mb-4 block"
-            >
-                Partnerships
-            </motion.span>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="font-display text-3xl md:text-4xl font-medium text-white max-w-2xl"
-            >
-                Trusted by growing brands worldwide
-            </motion.h2>
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-brand-500 uppercase tracking-[0.2em] text-xs font-bold mb-4 block"
+          >
+            Clients
+          </motion.span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-3xl md:text-4xl font-medium text-white max-w-2xl"
+          >
+            Trusted by growing brands worldwide
+          </motion.h2>
         </div>
 
         {/* Grid Layout with Thin Borders */}
@@ -62,11 +62,11 @@ const Clients: React.FC = () => {
             </motion.div>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center">
-            <p className="text-gray-500 text-sm">
-                Join 500+ companies building the future with SPESSOLV. <a href="#contact" className="text-white border-b border-brand-500 pb-0.5 hover:text-brand-500 transition-colors">Start a project</a>
-            </p>
+          <p className="text-gray-500 text-sm">
+            Start your journey with SPESSOLVE. <a href="#contact" className="text-white border-b border-brand-500 pb-0.5 hover:text-brand-500 transition-colors">Start a project</a>
+          </p>
         </div>
       </Container>
     </section>

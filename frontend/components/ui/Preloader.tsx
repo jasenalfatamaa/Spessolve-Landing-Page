@@ -40,27 +40,27 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
     >
       <div className="w-full max-w-md px-6">
         <div className="flex justify-between items-end mb-4">
-          <motion.span 
+          <motion.span
             className="font-display text-2xl font-bold tracking-tighter text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            SPESSOLV<span className="text-brand-500">.</span>
+            SPESSOLVE<span className="text-brand-500">.</span>
           </motion.span>
           <span className="font-mono text-xs text-brand-500">
             {Math.round(progress)}%
           </span>
         </div>
-        
+
         <div className="h-[2px] w-full bg-white/10 rounded-full overflow-hidden">
-          <motion.div 
+          <motion.div
             className="h-full bg-brand-500"
             style={{ width: `${progress}%` }}
             transition={{ ease: "linear" }}
           />
         </div>
-        
+
         <div className="mt-4 flex justify-between text-[10px] tracking-widest text-gray-600">
           <span className="uppercase">Loading Experience</span>
           <span className="lowercase text-brand-500/80 font-medium">make it ez</span>
