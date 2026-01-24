@@ -51,6 +51,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
   const handleBlur = () => {
     setOpacity(0);
     setIsHovered(false);
+    setIsFlipped(false);
   };
 
   const handleClick = () => {

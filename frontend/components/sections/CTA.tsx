@@ -77,7 +77,7 @@ const CTA: React.FC = () => {
             transition={{ delay: 0.3 }}
           >
             <a
-              href="mailto:jasenalfatama9@gmail.com"
+              href="https://wa.me/6281909122001?text=Halo%20SPESSOLVE,%20saya%20tertarik%20untuk%20bekerja%20sama"
               className="group relative inline-flex items-center gap-4 px-12 py-6 bg-black text-white rounded-full text-xl md:text-2xl font-medium overflow-hidden transition-transform duration-300 hover:scale-105"
             >
               <span className="relative z-10">Start Your Project</span>
