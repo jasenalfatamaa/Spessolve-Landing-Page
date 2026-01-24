@@ -28,6 +28,7 @@ const App: React.FC = () => {
 
   const handleNavigate = (view: 'home' | 'projects') => {
     setCurrentView(view);
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -35,7 +36,7 @@ const App: React.FC = () => {
     // Handled by body css in index.html.
     <div className="bg-void min-h-screen text-cream selection:bg-brand-500 selection:text-void md:cursor-none relative">
       <CustomCursor />
-      
+
       <AnimatePresence mode="wait">
         {isLoading && (
           <Preloader onComplete={() => setIsLoading(false)} />
@@ -46,7 +47,7 @@ const App: React.FC = () => {
       {!isLoading && (
         <>
           <Navbar onNavigate={handleNavigate} currentView={currentView} />
-          
+
           <main className="overflow-x-hidden"> {/* Moved overflow protection to main content wrapper */}
             {currentView === 'home' ? (
               <>
@@ -63,7 +64,7 @@ const App: React.FC = () => {
               <ProjectsPage onBack={() => handleNavigate('home')} />
             )}
           </main>
-          
+
           <Footer />
         </>
       )}
