@@ -34,6 +34,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!divRef.current) return;
@@ -41,8 +43,19 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
     setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const handleFocus = () => setOpacity(1);
-  const handleBlur = () => setOpacity(0);
+  const handleFocus = () => {
+    setOpacity(1);
+    setIsHovered(true);
+  };
+
+  const handleBlur = () => {
+    setOpacity(0);
+    setIsHovered(false);
+  };
+
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  };
 
   return (
     <div
@@ -50,13 +63,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index }) => {
       onMouseMove={handleMouseMove}
       onMouseEnter={handleFocus}
       onMouseLeave={handleBlur}
-      className="group relative h-[400px] perspective-1000"
+      onClick={handleClick}
+      className="group relative h-[400px] perspective-1000 cursor-pointer"
       style={{ perspective: '1000px' }}
     >
       <motion.div
         className="w-full h-full relative transition-all duration-700"
         initial={false}
-        whileHover={{ rotateY: 180 }}
+        animate={{ rotateY: isFlipped || isHovered ? 180 : 0 }}
         transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }} // Cubic bezier for premium feel
         style={{ transformStyle: 'preserve-3d' }}
       >

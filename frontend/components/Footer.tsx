@@ -48,8 +48,8 @@ const Footer: React.FC = () => {
             <address className="not-italic text-gray-500 space-y-2 text-sm">
               <p className="text-white font-medium">WhatsApp</p>
               <p>
-                <a href="https://wa.me/621909122001" target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
-                  +62 190 9122 001
+                <a href="https://wa.me/6281909122001" target="_blank" rel="noopener noreferrer" className="hover:text-brand-500 transition-colors">
+                  +62 8190 9122 001
                 </a>
               </p>
             </address>
