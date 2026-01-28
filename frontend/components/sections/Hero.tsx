@@ -206,12 +206,15 @@ const Hero: React.FC = () => {
           {/* Right Side Cards Container - Optimized for mobile visibility */}
           <motion.div
             style={{ y: contentY, opacity: contentOpacity }}
-            className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center pointer-events-auto relative min-h-[400px] md:min-h-[500px] lg:h-[600px] mt-16 lg:mt-0 w-full"
+            className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center pointer-events-auto relative min-h-auto md:min-h-[300px] lg:h-[600px] mb-8 lg:mt-0 w-full"
           >
             {/* Glowing Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[500px] aspect-square bg-gradient-to-tr from-brand-500/20 via-brand-600/10 to-brand-700/5 rounded-full blur-[70px] md:blur-[100px] pointer-events-none mix-blend-screen"></div>
 
-            <div className="relative z-10 flex flex-col gap-5 md:gap-7 transform lg:rotate-y-12 lg:rotate-x-6 perspective-1000 w-full max-w-md lg:max-w-none items-center lg:items-end px-4 md:px-0">
+            <motion.div
+              animate={{ y: [0, 20, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-col gap-5 md:gap-7 transform lg:rotate-y-12 lg:rotate-x-6 perspective-1000 w-full max-w-lg md:max-w-2xl lg:max-w-none justify-items-center items-center lg:items-end px-4 md:px-0">
               <HeroCard
                 icon={<PixelIconEasy />}
                 title="Make it EZ"
@@ -243,7 +246,7 @@ const Hero: React.FC = () => {
                 delay={0.9}
                 xOffset={45}
               />
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </Container>
@@ -251,7 +254,7 @@ const Hero: React.FC = () => {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-6 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 md:gap-4 pointer-events-none"
+        className="absolute bottom-6 md:bottom-10 left-0 w-full flex flex-col items-center justify-center gap-2 md:gap-4 pointer-events-none"
       >
         <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-cream/50">Scroll</span>
         <div className="text-cream/50">

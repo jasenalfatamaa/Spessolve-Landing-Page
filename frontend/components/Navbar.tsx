@@ -41,24 +41,10 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   const [activeSection, setActiveSection] = useState('home');
   const { scrollY } = useScroll();
   const [lastY, setLastY] = useState(0);
+  const isManualScrolling = React.useRef(false); // Lock to prevent scroll spy interference
 
   // Scroll Behavior: Hide on Down, Show on Up - DISABLED per user request (sticky header)
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // const diff = latest - lastY;
-
-    // // Only trigger hide logic if we've scrolled past the hero section significantly (e.g., 100px)
-    // if (latest > 100) {
-    //   if (Math.abs(diff) > 20) { // Increased threshold for stability
-    //     if (diff > 0) {
-    //       setIsHidden(true); // Scrolling down
-    //     } else {
-    //       setIsHidden(false); // Scrolling up
-    //     }
-    //   }
-    // } else {
-    //   setIsHidden(false); // Always show at top
-    // }
-
     setIsHidden(false); // Force visible
     setLastY(latest);
   });
@@ -66,6 +52,9 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   // Scroll Spy: Track active section based on scroll position
   useEffect(() => {
     const handleScrollSpy = () => {
+      // Skip updates if manually scrolling (clicked a link)
+      if (isManualScrolling.current) return;
+
       // If on projects view, that is the active section
       if (currentView === 'projects') {
         setActiveSection('projects');
@@ -127,7 +116,14 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
   const handleNavigation = (view: 'home' | 'projects', href: string) => {
     setMobileMenuOpen(false);
 
-    // Optimistic active section update
+    // Optimistic active section update & Lock Spy
+    isManualScrolling.current = true;
+
+    // Unlock after scroll animation completes (approx 1000ms)
+    setTimeout(() => {
+      isManualScrolling.current = false;
+    }, 1000);
+
     if (view === 'projects') {
       setActiveSection('projects');
     } else {
@@ -136,12 +132,21 @@ const Navbar: React.FC<NavbarProps> = ({ onNavigate, currentView }) => {
     }
 
     // Handle cross-page navigation logic
+    // Handle cross-page navigation logic
     if (view === 'projects') {
-      updateURL('/projects');
-      onNavigate('projects');
+      // 1. Scroll to top FIRST immediately
       document.documentElement.style.scrollBehavior = 'auto';
       window.scrollTo(0, 0);
       document.documentElement.style.scrollBehavior = 'smooth';
+
+      // 2. DELAY the state update slightly
+      // This forces the "slide" animation to calculate start/end positions ONLY after we are safely at Y=0
+      // Eliminating the vertical delta completely
+      setTimeout(() => {
+        updateURL('/projects');
+        onNavigate('projects');
+      }, 50);
+
       return;
     }
 

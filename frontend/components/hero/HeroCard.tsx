@@ -33,9 +33,7 @@ const HeroCard: React.FC<HeroCardProps> = ({ icon, title, gradient, delay, xOffs
         >
             {/* Continuous Floating Animation */}
             <motion.div
-                animate={{ y: [0, -8, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay * 2 }}
-                className="relative flex items-center gap-4 md:gap-5 p-4 md:p-5 pr-8 md:pr-12 rounded-xl md:rounded-2xl border border-white/20 bg-surface/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_60px_rgba(133,169,71,0.2)] overflow-hidden w-full max-w-[320px] lg:min-w-[320px] transition-all duration-500"
+                className="relative flex items-center gap-3 md:gap-4 p-3 md:p-4 pr-6 md:pr-10 rounded-xl md:rounded-2xl border border-white/20 bg-surface/95 backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_60px_rgba(133,169,71,0.2)] overflow-hidden w-full max-w-[280px] lg:min-w-[280px] transition-all duration-500"
             >
                 {/* Hover State Layer */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/5"></div>
