@@ -132,7 +132,7 @@ const Hero: React.FC = () => {
             style={{ y: contentY, opacity: contentOpacity }}
             className="lg:col-span-7 flex flex-col items-start justify-center pointer-events-auto text-left"
           >
-            <h1 className="w-full font-display font-medium text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1] md:leading-[0.85] tracking-tighter text-cream mb-6">
+            <h1 className="w-full font-display font-medium text-4xl sm:text-6xl md:text-7xl lg:text-8xl leading-tight md:leading-[1] tracking-tighter text-cream mb-6">
               <div className="overflow-hidden">
                 <motion.div initial="hidden" animate="visible" variants={textVariants} transition={{ delay: 0.1 }}>
                   THE

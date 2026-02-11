@@ -61,9 +61,9 @@ const Preloader: React.FC<PreloaderProps> = ({ onComplete }) => {
           />
         </div>
 
-        <div className="mt-4 flex justify-between text-[10px] tracking-widest text-gray-600">
+        <div className="mt-4 flex justify-between text-[10px] tracking-widest text-brand-100/60">
           <span className="uppercase">Loading Experience</span>
-          <span className="lowercase text-brand-500/80 font-medium">make it ez</span>
+          <span className="lowercase text-brand-500 font-bold">make it ez</span>
         </div>
       </div>
     </motion.div>

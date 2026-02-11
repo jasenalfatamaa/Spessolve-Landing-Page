@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Services from './components/sections/Services';
-import Work from './components/sections/Work';
-import Process from './components/sections/Process';
-import Clients from './components/sections/Clients';
-import CTA from './components/sections/CTA';
-import Footer from './components/Footer';
-import ProjectsPage from './components/ProjectsPage';
+
+// Lazy load components to reduce initial bundle size
+const Navbar = lazy(() => import('./components/Navbar'));
+const Hero = lazy(() => import('./components/sections/Hero'));
+const About = lazy(() => import('./components/sections/About'));
+const Services = lazy(() => import('./components/sections/Services'));
+const Work = lazy(() => import('./components/sections/Work'));
+const Process = lazy(() => import('./components/sections/Process'));
+const Clients = lazy(() => import('./components/sections/Clients'));
+const CTA = lazy(() => import('./components/sections/CTA'));
+const Footer = lazy(() => import('./components/Footer'));
+const ProjectsPage = lazy(() => import('./components/ProjectsPage'));
+const Marquee = lazy(() => import('./components/ui/Marquee'));
+
 import CustomCursor from './components/ui/CustomCursor';
 import Preloader from './components/ui/Preloader';
-import Marquee from './components/ui/Marquee';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -45,7 +48,7 @@ const App: React.FC = () => {
 
       {/* Render Navbar conditionally but ensure it mounts after loading to avoid initial animation glitches */}
       {!isLoading && (
-        <>
+        <Suspense fallback={<div className="bg-void min-h-screen" />}>
           <Navbar onNavigate={handleNavigate} currentView={currentView} />
 
           <main className="overflow-x-hidden"> {/* Moved overflow protection to main content wrapper */}
@@ -66,7 +69,7 @@ const App: React.FC = () => {
           </main>
 
           <Footer />
-        </>
+        </Suspense>
       )}
     </div>
   );

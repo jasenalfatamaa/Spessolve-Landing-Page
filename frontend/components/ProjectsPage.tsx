@@ -120,7 +120,7 @@ export const allProjects: Project[] = [
     impact: "Award Winning",
     year: "2026",
     image: spessolvGoldImg,
-    url: "https://spessolve-gold.vercel.app",
+    url: "https://spessolve.web.id",
   }
 ];
 

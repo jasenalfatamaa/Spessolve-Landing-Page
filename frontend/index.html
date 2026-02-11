@@ -4,113 +4,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="SPESSOLVE - The Architecture of Ambition. Professional architecture and design services to make your vision come alive." />
+  <meta name="keywords" content="architecture, design, building, construction, spessolve, home design" />
+  <meta property="og:title" content="SPESSOLVE | The Architecture of Ambition" />
+  <meta property="og:description" content="Professional architecture and design services." />
+  <meta property="og:type" content="website" />
   <title>SPESSOLVE | The Architecture of Ambition</title>
   <link rel="icon" type="image/svg+xml" sizes="any"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='12' fill='white'/%3E%3Ctext x='12' y='17' font-family='sans-serif' font-size='14' font-weight='900' text-anchor='middle' fill='%2385A947'%3EEZ%3C/text%3E%3C/svg%3E">
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
+  <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Link Google Fonts for Storytelling Aesthetic -->
+
+  <!-- Font Preloading for Performance -->
+  <link rel="preload" as="font"
+    href="https://fonts.gstatic.com/s/merriweather/v33/u-4e0qyriQwlOrhSvowK_l5UcA6zuSYEqOzpPe3HOZJ5eX1WtLaQwmYiSeqqJ-mXq1Gi.woff2"
+    type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/quicksand/v37/6xKtdSZaM9iE8KbpRA_hK1QNYuDyPw.woff2"
+    type="font/woff2" crossorigin>
+
+  <link rel="preload" as="image" href="https://grainy-gradients.vercel.app/noise.svg">
+
   <link
     href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap"
     rel="stylesheet" />
 
-  <!-- Tailwind Config -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            // Classic + Modern Mapping
-            sans: ['"Quicksand"', 'sans-serif'],
-            display: ['"Merriweather"', 'serif'],
-            serif: ['"Merriweather"', 'serif'],
-            // Mapping mono to Quicksand to replace previous "tech" styles with "soft" styles
-            mono: ['"Quicksand"', 'sans-serif'],
-          },
-          colors: {
-            brand: {
-              50: '#f4f7f2',
-              100: '#eef3e8',
-              300: '#3E7B27',
-              500: '#85A947',
-              600: '#3E7B27',
-              700: '#123524',
-              900: '#0a2016',
-            },
-            void: '#123524',
-            surface: '#0f2e1f',
-            cream: '#EFE3C2',
-            subtle: '#3E7B27',
-            muted: '#AABBAA',
-          },
-        },
-      },
-    };
-  </script>
-
-  <!-- Global Styles -->
-  <style>
-    html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      background-color: #123524;
-      color: #EFE3C2;
-      overflow-x: hidden;
-      font-family: 'Quicksand', sans-serif;
-    }
-
-    /* Headings */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-family: 'Merriweather', serif;
-    }
-
-    /* Selection */
-    ::selection {
-      background-color: #85A947;
-      color: #123524;
-    }
-
-    /* Scrollbar hidden */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
-
-  <!-- Import Map -->
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.3.1",
-    "react-dom/": "https://esm.sh/react-dom@18.3.1/",
-    "framer-motion": "https://esm.sh/framer-motion@11.0.8",
-    "react/": "https://esm.sh/react@18.3.1/"
-  }
-}
-</script>
-  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/src/index.css">
 </head>
 
 <body class="font-sans">
   <div id="root"></div>
-  <script type="module" src="index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
 
