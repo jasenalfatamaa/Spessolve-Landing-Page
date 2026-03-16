@@ -52,6 +52,7 @@ import archLinksImg from '../images/archlinks.webp';
 import spessolvGoldImg from '../images/spessolv-gold.webp';
 import travelingImg from '../images/traveling.webp';
 import garmentImg from '../images/garment.webp';
+import restaurantManagerImg from '../images/restaurant-manager.webp';
 
 export const allProjects: Project[] = [
   {
@@ -67,6 +68,20 @@ export const allProjects: Project[] = [
     year: '2026',
     image: travelingImg,
     url: 'https://traveling-system.vercel.app'
+  },
+  {
+    id: 8,
+    title: 'Restaurant System Manager',
+    category: 'F&B / Management System',
+    description: 'Integrated digital solution for restaurant operations and table management.',
+    fullDescription: 'This comprehensive platform redefines hospitality operations by integrating real-time table management, digital ordering, and kitchen synchronization. Designed for high-volume environments, it minimizes wait times and eliminates order errors through a seamless, architecturally-sound interface.',
+    technologies: ["React", "Framer Motion", "TailwindCSS", "Vite"],
+    testimonial: "The system transformed our operational efficiency. Table turnover increased by 30% and the user experience is second to none.",
+    clientRole: "General Manager, Savory Bistro",
+    impact: "30% Table Turnover",
+    year: '2026',
+    image: restaurantManagerImg,
+    url: 'https://restaurant-sys-manager.vercel.app/'
   },
   {
     id: 7,
